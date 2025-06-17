@@ -17,7 +17,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_carousel_screen.dart';
 import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_list_screen.dart';
 import 'package:app_dev_fitness_diet/frontend/features/workouts/add_workout_screen.dart';
 import 'package:app_dev_fitness_diet/frontend/features/intermittent%20fasting/fasting_view.dart';

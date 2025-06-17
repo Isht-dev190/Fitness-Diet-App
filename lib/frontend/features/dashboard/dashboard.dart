@@ -23,7 +23,6 @@ class Dashboard extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isDark = themeProvider.isDarkMode;
     final backgroundColor = isDark ? AppPallete.darkBgColor : AppPallete.lightBgColor;
-    final textColor = isDark ? AppPallete.textColorDarkMode : AppPallete.textColorLightMode;
     final isRootRoute = currentRoute == '/dashboard';
 
     return Scaffold(
@@ -40,8 +39,6 @@ class Dashboard extends StatelessWidget {
                 height: 300,
                 child: MealCarouselScreen(),
               ),
-              
-             
               SizedBox(
                 height: 300,
                 child: WorkoutCarouselScreen(),
