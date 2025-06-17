@@ -22,7 +22,7 @@ void main() {
         providers: [
           ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ],
-        child: MaterialApp(
+        child: const MaterialApp(
           home: Scaffold(
             appBar: CustomAppBar(isRootRoute: true),
           ),
@@ -44,7 +44,7 @@ void main() {
             create: (_) => ThemeProvider()..toggleTheme(),
           ),
         ],
-        child: MaterialApp(
+        child: const MaterialApp(
           home: Scaffold(
             appBar: CustomAppBar(isRootRoute: true),
           ),
