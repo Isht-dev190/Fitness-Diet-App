@@ -19,9 +19,8 @@ class WorkoutCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         side: const BorderSide(color: AppPallete.lightPrimaryColor, width: 2.0),
       ),
-      child: InkWell(
+      child: GestureDetector(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(8.0),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

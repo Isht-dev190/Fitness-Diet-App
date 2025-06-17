@@ -10,9 +10,9 @@ class AppTheme {
     colorScheme: const ColorScheme.light(
       primary: AppPallete.primaryColor,
       secondary: AppPallete.lightPrimaryColor,
-      background: AppPallete.lightBgColor,
+     // background: AppPallete.lightBgColor,
       surface: AppPallete.lightBgColor,
-      onBackground: AppPallete.textColorLightMode,
+      //onBackground: AppPallete.textColorLightMode,
       onSurface: AppPallete.textColorLightMode,
     ),
     cardTheme: const CardTheme(
@@ -44,9 +44,9 @@ class AppTheme {
     colorScheme: const ColorScheme.dark(
       primary: AppPallete.primaryColor,
       secondary: AppPallete.lightPrimaryColor,
-      background: AppPallete.darkBgColor,
+      //background: AppPallete.darkBgColor,
       surface: AppPallete.darkBgColor,
-      onBackground: AppPallete.textColorDarkMode,
+    //  onBackground: AppPallete.textColorDarkMode,
       onSurface: AppPallete.textColorDarkMode,
     ),
     cardTheme: const CardTheme(

@@ -108,17 +108,17 @@ class SignInPage extends StatelessWidget {
                 const SizedBox(height: 30,),
                 BlocBuilder<ButtonCubit, ButtonState>(
                   builder: (context, state) {
-                    return CustomButton(text: 'NEXT', onPressed: () => viewModel.onNextPressed(context), state: state);
+                    return CustomButton(text: 'SIGN IN', onPressed: () => viewModel.onNextPressed(context), state: state);
                   }
                 ),
                 const SizedBox(height: 20),
                 const Text('OR'),
                 const SizedBox(height: 20),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: isDark ? AppPallete.darkBgColor : AppPallete.lightBgColor,
                       minimumSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),

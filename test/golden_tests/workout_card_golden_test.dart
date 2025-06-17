@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/theme_provider.dart';
-import 'package:app_dev_fitness_diet/frontend/core/Widgets/workout_card.dart';
+import 'package:app_dev_fitness_diet/frontend/core/Widgets/workouts/workout_card.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/workout_model.dart';
 
 void main() {

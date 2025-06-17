@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.fitness_center),
               title: const Text('Workouts'),
               onTap: () {
-                Navigator.pop(context); 
+                context.pop();
                 context.go('/dashboard/workouts');
               },
             ),

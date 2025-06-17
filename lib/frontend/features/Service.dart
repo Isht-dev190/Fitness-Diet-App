@@ -6,6 +6,7 @@ import 'package:app_dev_fitness_diet/frontend/core/Models/food_model.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/article_model.dart';
 import 'package:app_dev_fitness_diet/frontend/core/storage/article_storage_service.dart';
 
+// Service for fetching and caching exercises
 class ExerciseService extends ChangeNotifier {
   final _supabase = Supabase.instance.client;
   static const String _exerciseBoxName = 'exercises';
@@ -17,35 +18,29 @@ class ExerciseService extends ChangeNotifier {
   String? get error => _error;
   List<Exercise>? get exercises => _exercises;
 
+  // Gets exercises from cache or Supabase
   Future<List<Exercise>> getExercises() async {
     try {
-
       final box = await Hive.openBox<Exercise>(_exerciseBoxName);
       if (box.isNotEmpty) {
         _exercises = box.values.toList();
         return _exercises!;
       }
-
       _isLoading = true;
       _error = null;
       notifyListeners();
-
       final response = await _supabase
           .rpc('get_exercises');
-
       if (response == null) {
         throw 'Failed to fetch exercises';
       }
-
       final exercisesList = (response as List<dynamic>)
           .map((json) => Exercise.fromJson(json as Map<String, dynamic>))
           .toList();
-
       await box.clear(); 
       for (var exercise in exercisesList) {
         await box.add(exercise);
       }
-
       _exercises = exercisesList;
       return exercisesList;
     } catch (e) {
@@ -57,6 +52,7 @@ class ExerciseService extends ChangeNotifier {
     }
   }
 
+  // Clears the exercise cache
   Future<void> clearCache() async {
     final box = await Hive.openBox<Exercise>(_exerciseBoxName);
     await box.clear();
@@ -65,6 +61,7 @@ class ExerciseService extends ChangeNotifier {
   }
 }
 
+// Service for fetching and caching foods
 class FoodService extends ChangeNotifier {
   final _supabase = Supabase.instance.client;
   static const String _foodBoxName = 'foods';
@@ -76,35 +73,29 @@ class FoodService extends ChangeNotifier {
   String? get error => _error;
   List<Food>? get foods => _foods;
 
+  // Gets foods from cache or Supabase
   Future<List<Food>> getFoods() async {
     try {
-
       final box = await Hive.openBox<Food>(_foodBoxName);
       if (box.isNotEmpty) {
         _foods = box.values.toList();
         return _foods!;
       }
-
       _isLoading = true;
       _error = null;
       notifyListeners();
-
       final response = await _supabase
           .rpc('get_foods');
-
       if (response == null) {
         throw 'Failed to fetch foods';
       }
-
       final foodsList = (response as List<dynamic>)
           .map((json) => Food.fromJson(json as Map<String, dynamic>))
           .toList();
-
       await box.clear(); 
       for (var food in foodsList) {
         await box.add(food);
       }
-
       _foods = foodsList;
       return foodsList;
     } catch (e) {
@@ -116,6 +107,7 @@ class FoodService extends ChangeNotifier {
     }
   }
 
+  // Clears the food cache
   Future<void> clearCache() async {
     final box = await Hive.openBox<Food>(_foodBoxName);
     await box.clear();
@@ -124,6 +116,7 @@ class FoodService extends ChangeNotifier {
   }
 }
 
+// Service for fetching and caching articles
 class TipsService extends ChangeNotifier {
   //final _supabase = Supabase.instance.client;
   final _storageService = ArticleStorageService();
@@ -135,7 +128,7 @@ class TipsService extends ChangeNotifier {
   String? get error => _error;
   List<Article>? get articles => _articles;
 
-  //This function gets articles from local storage 
+  // Gets articles from local storage
   Future<List<Article>> getArticles() async {
     try {
       final cachedArticles = _storageService.getAllArticles();
@@ -143,11 +136,9 @@ class TipsService extends ChangeNotifier {
         _articles = cachedArticles;
         return cachedArticles;
       }
-
       _isLoading = true;
       _error = null;
       notifyListeners();
-
       await _initializeSampleArticles();
       final sampleArticles = _storageService.getAllArticles();
       _articles = sampleArticles;
@@ -161,12 +152,14 @@ class TipsService extends ChangeNotifier {
     }
   }
   
+  // Toggles like for an article
   Future<void> toggleLike(String id) async {
     await _storageService.toggleLike(id);
     _articles = _storageService.getAllArticles();
     notifyListeners();
   }
 
+  // Initializes some sample articles in storage
   Future<void> _initializeSampleArticles() async {
     final sampleArticles = [
       Article(
@@ -189,7 +182,6 @@ class TipsService extends ChangeNotifier {
       ),
     
     ];
-
     for (var article in sampleArticles) {
       await _storageService.saveArticle(article);
     }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/meal_model.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
+import 'package:go_router/go_router.dart';
 
 class MealDetails extends StatelessWidget {
   final Meal meal;
@@ -35,7 +36,7 @@ class MealDetails extends StatelessWidget {
                 ),
                 IconButton(
                   icon: const Icon(Icons.close, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => context.pop(),
                 ),
               ],
             ),

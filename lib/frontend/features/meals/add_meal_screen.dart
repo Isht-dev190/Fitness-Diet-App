@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/food_model.dart';
 import 'package:app_dev_fitness_diet/frontend/features/meals/meal_cubit.dart';
@@ -7,10 +8,13 @@ import 'package:app_dev_fitness_diet/frontend/features/foods/food_viewModel.dart
 import 'package:app_dev_fitness_diet/frontend/features/auth/AuthService.dart';
 import 'package:app_dev_fitness_diet/frontend/features/meals/meal_state.dart';
 import 'package:app_dev_fitness_diet/frontend/features/meals/portion_size_cubit.dart';
+import 'package:app_dev_fitness_diet/frontend/features/meals/portionSizeDialog.dart';
 
+// Screen for adding a new meal
 class AddMealScreen extends StatelessWidget {
   const AddMealScreen({Key? key}) : super(key: key);
 
+  // Builds the add meal screen with a stepper for food selection and meal naming
   @override
   Widget build(BuildContext context) {
     final mealCubit = context.read<MealCubit>();
@@ -27,6 +31,7 @@ class AddMealScreen extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
 
+          // Stepper for selecting foods and naming the meal
           return Stepper(
             currentStep: state.currentStep,
             onStepContinue: () {
@@ -53,14 +58,14 @@ class AddMealScreen extends StatelessWidget {
                   return;
                 }
                 mealCubit.saveMeal(userEmail);
-                Navigator.pop(context);
+                context.pop();
               }
             },
             onStepCancel: () {
               if (state.currentStep > 0) {
                 mealCubit.updateCurrentStep(state.currentStep - 1);
               } else {
-                Navigator.pop(context);
+                context.pop();
               }
             },
             steps: [
@@ -68,6 +73,7 @@ class AddMealScreen extends StatelessWidget {
                 title: const Text('Select Foods'),
                 content: Column(
                   children: [
+                    // Button to add a food to the meal
                     ElevatedButton(
                       onPressed: () async {
                         final selectedFood = await showDialog<Food>(
@@ -84,7 +90,7 @@ class AddMealScreen extends StatelessWidget {
                                   return ListTile(
                                     title: Text(food.name),
                                     subtitle: Text('${food.calories} calories per 100g'),
-                                    onTap: () => Navigator.pop(context, food),
+                                    onTap: () => context.pop(food),
                                   );
                                 },
                               ),
@@ -109,6 +115,7 @@ class AddMealScreen extends StatelessWidget {
                       child: const Text('Add Food'),
                     ),
                     const SizedBox(height: 16),
+                    // List of foods added to the meal
                     ListView.builder(
                       shrinkWrap: true,
                       itemCount: state.selectedFoods.length,
@@ -130,6 +137,7 @@ class AddMealScreen extends StatelessWidget {
                     ),
                     if (state.selectedFoods.isNotEmpty) ...[
                       const SizedBox(height: 16),
+                      // Shows total calories for the meal
                       Text(
                         'Total Calories: ${state.totalCalories.toStringAsFixed(1)}',
                         style: const TextStyle(
@@ -161,48 +169,4 @@ class AddMealScreen extends StatelessWidget {
   }
 }
 
-class PortionSizeDialog extends StatelessWidget {
-  const PortionSizeDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final textController = TextEditingController();
-    final portionSizeCubit = context.read<PortionSizeCubit>();
-
-    return AlertDialog(
-      title: const Text('Enter Portion Size'),
-      content: BlocBuilder<PortionSizeCubit, double?>(
-        builder: (context, portionSize) {
-          return TextField(
-            controller: textController,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              labelText: 'Portion Size (g)',
-              hintText: 'Enter portion size in grams',
-            ),
-            onChanged: portionSizeCubit.updatePortionSize,
-          );
-        },
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            portionSizeCubit.reset();
-            Navigator.pop(context);
-          },
-          child: const Text('Cancel'),
-        ),
-        BlocBuilder<PortionSizeCubit, double?>(
-          builder: (context, portionSize) {
-            return TextButton(
-              onPressed: portionSize != null
-                ? () => Navigator.pop(context, portionSize)
-                : null,
-              child: const Text('OK'),
-            );
-          },
-        ),
-      ],
-    );
-  }
-} 
+// Dialog for entering portion size

@@ -2,21 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/article_model.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
 import 'package:app_dev_fitness_diet/frontend/features/Tips/tips_viewModel.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+// This widget just shows the details of an article
 class ArticleDetailsView extends StatelessWidget {
   final Article article;
 
+  // Just the constructor, takes an article and that's it.
   const ArticleDetailsView({
     super.key,
     required this.article,
   });
 
+  // Builds the whole article details screen, with an app bar and all the info
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+          // The app bar at the top, with a gradient and some buttons
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -40,7 +45,7 @@ class ArticleDetailsView extends StatelessWidget {
                       Text(
                         article.title,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppPallete.textColorDarkMode,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
@@ -50,7 +55,7 @@ class ArticleDetailsView extends StatelessWidget {
                       Text(
                         article.date,
                         style: const TextStyle(
-                          color: Colors.white70,
+                          color: AppPallete.textColorDarkMode,
                           fontSize: 14,
                         ),
                       ),
@@ -60,16 +65,17 @@ class ArticleDetailsView extends StatelessWidget {
               ),
             ),
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white),
-              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Icons.arrow_back, color: AppPallete.textColorDarkMode),
+              onPressed: () => context.pop(),
             ),
             actions: [
+              // Like button, toggles the heart icon
               Consumer<TipsViewModel>(
                 builder: (context, viewModel, child) {
                   return IconButton(
                     icon: Icon(
                       article.isLiked ? Icons.favorite : Icons.favorite_border,
-                      color: Colors.white,
+                      color: AppPallete.textColorDarkMode,
                     ),
                     onPressed: () {
                       viewModel.toggleLike(article.id);
@@ -79,6 +85,7 @@ class ArticleDetailsView extends StatelessWidget {
               ),
             ],
           ),
+          // The rest of the article, just a bunch of text and  some content
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -95,7 +102,7 @@ class ArticleDetailsView extends StatelessWidget {
                     article.description,
                     style: const TextStyle(
                       fontSize: 16,
-                      height: 1.5,
+                      color: AppPallete.textColorDarkMode,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -106,7 +113,7 @@ class ArticleDetailsView extends StatelessWidget {
                       article.content!,
                       style: const TextStyle(
                         fontSize: 16,
-                        height: 1.5,
+                        color: AppPallete.textColorDarkMode,
                       ),
                     ),
                   ],

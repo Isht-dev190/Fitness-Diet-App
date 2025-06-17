@@ -3,6 +3,7 @@ import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/meal_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:app_dev_fitness_diet/frontend/features/meals/meal_cubit.dart';
+import 'package:go_router/go_router.dart';
 
 class MealCard extends StatelessWidget {
   final Meal meal;
@@ -46,13 +47,13 @@ class MealCard extends StatelessWidget {
                         content: Text('Are you sure you want to delete "${meal.name}"?'),
                         actions: [
                           TextButton(
-                            onPressed: () => Navigator.pop(context),
+                            onPressed: () => context.pop(),
                             child: const Text('Cancel'),
                           ),
                           TextButton(
                             onPressed: () {
                               context.read<MealCubit>().deleteMeal(meal.id);
-                              Navigator.pop(context);
+                              context.pop();
                             },
                             child: const Text('Delete'),
                           ),

@@ -1,3 +1,4 @@
+import 'package:app_dev_fitness_diet/frontend/core/Models/article_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
@@ -107,16 +108,8 @@ class TipsView extends StatelessWidget {
                     ),
                     elevation: 4,
                     shadowColor: AppPallete.primaryColor.withOpacity(0.3),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ArticleDetailsView(article: article),
-                          ),
-                        );
-                      },
-                      borderRadius: BorderRadius.circular(15),
+                    child: GestureDetector(
+                      onTap: () => _showArticleDetails(context, article),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -181,6 +174,15 @@ class TipsView extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+
+  void _showArticleDetails(BuildContext context, Article article) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ArticleDetailsView(article: article),
+      ),
     );
   }
 }

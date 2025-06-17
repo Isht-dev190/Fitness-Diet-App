@@ -24,7 +24,7 @@ class FastingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-    final isDark = themeProvider.isDarkMode;
+    final bool isDark = themeProvider.isDarkMode;
     final backgroundColor = isDark ? AppPallete.darkBgColor : AppPallete.lightBgColor;
     final textColor = isDark ? Colors.white : AppPallete.textColorLightMode;
     final viewModel = context.watch<FastingViewModel>();
@@ -41,9 +41,9 @@ class FastingContent extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back,
-                      color: AppPallete.darkBgColor,
+                      color: isDark ? AppPallete.textColorDarkMode : AppPallete.textColorLightMode,
                     ),
                     onPressed: () => context.go('/dashboard'),
                   ),

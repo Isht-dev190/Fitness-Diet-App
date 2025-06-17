@@ -1,8 +1,8 @@
+import 'package:app_dev_fitness_diet/frontend/features/foods/food_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
 import 'package:provider/provider.dart';
 import 'package:app_dev_fitness_diet/frontend/features/foods/food_viewModel.dart';
-import 'package:app_dev_fitness_diet/frontend/features/foods/food_details_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FoodsView extends StatelessWidget {
@@ -67,7 +67,7 @@ class FoodsView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       side: const BorderSide(color: AppPallete.primaryColor),
                     ),
-                    child: InkWell(
+                    child: GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
@@ -76,7 +76,6 @@ class FoodsView extends StatelessWidget {
                           ),
                         );
                       },
-                      borderRadius: BorderRadius.circular(15),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Row(

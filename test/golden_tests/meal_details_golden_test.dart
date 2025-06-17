@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:app_dev_fitness_diet/frontend/core/Widgets/meal_details.dart';
+import 'package:app_dev_fitness_diet/frontend/core/Widgets/meals/meal_details.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/meal_model.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/food_model.dart';
 

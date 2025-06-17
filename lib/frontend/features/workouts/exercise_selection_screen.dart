@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/workout_model.dart';
+import 'package:go_router/go_router.dart';
 
 // State class for ExerciseSelectionCubit
 class ExerciseSelectionState {
@@ -86,7 +87,7 @@ class ExerciseSelectionScreen extends StatelessWidget {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context, state.selectedExercises);
+                    context.pop(state.selectedExercises);
                   },
                   child: const Text('Done'),
                 ),

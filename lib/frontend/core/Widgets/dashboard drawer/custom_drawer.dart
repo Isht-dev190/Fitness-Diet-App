@@ -1,8 +1,9 @@
 import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/theme_provider.dart';
+
+import 'package:go_router/go_router.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -32,7 +33,7 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.fitness_center, color: AppPallete.primaryColor),
+            leading: const Icon(Icons.fitness_center, color: AppPallete.primaryColor),
             title: Text(
               'Workouts',
               style: TextStyle(
@@ -41,13 +42,12 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
               context.go('/dashboard/workouts');
             },
           ),
           const SizedBox(height: 20),
           ListTile(
-            leading: Icon(Icons.restaurant_menu, color: AppPallete.primaryColor),
+            leading: const Icon(Icons.restaurant_menu, color: AppPallete.primaryColor),
             title: Text(
               'Meals',
               style: TextStyle(
@@ -56,13 +56,12 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
               context.go('/dashboard/meals');
             },
           ),
           const SizedBox(height: 20),
           ListTile(
-            leading: Icon(Icons.timer, color: AppPallete.primaryColor),
+            leading: const Icon(Icons.timer, color: AppPallete.primaryColor),
             title: Text(
               'Intermittent Fasting',
               style: TextStyle(
@@ -71,13 +70,13 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              
               context.go('/dashboard/fasting');
             },
           ),
           const SizedBox(height: 20),
           ListTile(
-            leading: Icon(Icons.settings, color: AppPallete.primaryColor),
+            leading: const Icon(Icons.settings, color: AppPallete.primaryColor),
             title: Text(
               'Settings',
               style: TextStyle(
@@ -86,7 +85,7 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+            
               context.go('/dashboard/settings');
             },
           ),

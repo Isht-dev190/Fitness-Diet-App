@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ErrorDialogbox {
    void showErrorDialog(BuildContext context, String message) {
@@ -6,10 +7,10 @@ class ErrorDialogbox {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Sign In Failed'),
-        content: Text('Wrong Credentials, please try again.'),
+        content: const Text('Wrong Credentials, please try again.'),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => context.pop(),
             child: const Text('OK'),
           ),
         ],

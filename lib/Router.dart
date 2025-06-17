@@ -122,13 +122,6 @@ final router = GoRouter(
     // Main App Shell Route, for nesting across the app and share ui components
     ShellRoute(
       builder: (context, state, child) {
-        final workoutBox = Hive.box<Workout>('workouts');
-        final workoutService = WorkoutServiceCubit(workoutBox);
-        final workoutRepository = WorkoutRepository(workoutService);
-        final workoutCubit = WorkoutCubit(workoutRepository);
-        final mealBox = Hive.box<Meal>('meals');
-        final mealCubit = MealCubit(mealBox);
-
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (_) => TipsService()),
@@ -138,9 +131,21 @@ final router = GoRouter(
             ChangeNotifierProvider<TipsViewModel>(
               create: (context) => TipsViewModel(context.read<TipsRepository>()),
             ),
-            BlocProvider.value(value: workoutCubit),
+            BlocProvider(
+              create: (context) {
+                final workoutBox = Hive.box<Workout>('workouts');
+                final workoutService = WorkoutServiceCubit(workoutBox);
+                final workoutRepository = WorkoutRepository(workoutService);
+                return WorkoutCubit(workoutRepository);
+              },
+            ),
             BlocProvider(create: (_) => AddWorkoutCubit()),
-            BlocProvider.value(value: mealCubit),
+            BlocProvider(
+              create: (context) {
+                final mealBox = Hive.box<Meal>('meals');
+                return MealCubit(mealBox);
+              },
+            ),
           ],
           child: Dashboard(
             currentRoute: state.matchedLocation,

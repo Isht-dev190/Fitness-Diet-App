@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppPallete {
   // Background colors
@@ -23,4 +24,6 @@ class AppPallete {
   static const Color inputTextLightMode = Color(0xFF1C1C1E);
   static const Color inputHintDarkMode = Color(0xFF8E8E93);
   static const Color inputHintLightMode = Color(0xFF8E8E93);
+
+  
 }
