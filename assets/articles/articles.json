@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "The Science of Muscle Growth",
+      "description": "Understanding how muscles grow and the importance of progressive overload in strength training. Learn about protein synthesis, recovery periods, and optimal training frequency for maximum muscle gains.",
+      "category": "Strength Training"
+    },
+    {
+      "id": "2",
+      "title": "Nutrition Timing for Athletes",
+      "description": "Discover the optimal timing for pre and post-workout nutrition. Learn how to fuel your workouts and maximize recovery through strategic meal planning and supplementation.",
+      "category": "Nutrition"
+    },
+    {
+      "id": "3",
+      "title": "HIIT vs. Steady State Cardio",
+      "description": "Compare the benefits of High-Intensity Interval Training (HIIT) and traditional steady-state cardio. Understand which approach is best for your fitness goals and how to implement both effectively.",
+      "category": "Cardio"
+    },
+    {
+      "id": "4",
+      "title": "Essential Supplements Guide",
+      "description": "A comprehensive guide to essential supplements for fitness enthusiasts. Learn about protein powders, creatine, BCAAs, and other supplements that can support your training goals.",
+      "category": "Supplements"
+    },
+    {
+      "id": "5",
+      "title": "Sleep and Recovery",
+      "description": "The crucial role of sleep in muscle recovery and athletic performance. Learn about sleep cycles, optimal sleep duration, and strategies to improve sleep quality for better results.",
+      "category": "Recovery"
+    },
+    {
+      "id": "6",
+      "title": "Meal Prep Basics",
+      "description": "Master the art of meal preparation for consistent nutrition. Learn efficient meal prep strategies, storage techniques, and recipe ideas to maintain your diet goals.",
+      "category": "Nutrition"
+    },
+    {
+      "id": "7",
+      "title": "Form and Technique",
+      "description": "Essential guide to proper exercise form and technique. Learn how to perform common exercises correctly to prevent injury and maximize results.",
+      "category": "Strength Training"
+    },
+    {
+      "id": "8",
+      "title": "Hydration for Performance",
+      "description": "Understanding the importance of proper hydration for athletic performance. Learn about water intake, electrolyte balance, and signs of dehydration.",
+      "category": "Nutrition"
+    },
+    {
+      "id": "9",
+      "title": "Mind-Muscle Connection",
+      "description": "Develop a stronger mind-muscle connection for better workout results. Learn techniques to improve focus and muscle activation during exercises.",
+      "category": "Strength Training"
+    },
+    {
+      "id": "10",
+      "title": "Rest Day Strategies",
+      "description": "Make the most of your rest days with active recovery techniques. Learn about stretching, foam rolling, and light activity to enhance recovery.",
+      "category": "Recovery"
+    }
+  ]
+}

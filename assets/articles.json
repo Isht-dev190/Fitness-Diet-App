@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "title": "The Importance of Protein in Muscle Building",
+    "description": "Learn why protein is crucial for muscle growth and recovery, and how to optimize your protein intake.",
+    "category": "Nutrition",
+    "date": "2024-03-20",
+    "content": "Protein is essential for muscle building and recovery. When you exercise, you create small tears in your muscle fibers. Protein helps repair these tears, making your muscles stronger and larger. Aim for 1.6-2.2g of protein per kg of body weight daily. Good sources include lean meats, fish, eggs, dairy, and plant-based options like tofu and legumes. Timing matters too - consume protein within 30 minutes after your workout for optimal muscle recovery.",
+    "is_liked": false
+  },
+  {
+    "id": "2",
+    "title": "Proper Form: The Key to Effective Workouts",
+    "description": "Discover why proper form is more important than lifting heavy weights, and how to maintain it.",
+    "category": "Exercise",
+    "date": "2024-03-19",
+    "content": "Proper form is crucial for effective and safe workouts. It ensures you're targeting the right muscles and prevents injuries. Start with lighter weights to master the movement pattern. Focus on controlled movements and full range of motion. Common mistakes include rounding the back during deadlifts, improper squat depth, and using momentum instead of muscle control. Consider working with a trainer to learn correct form for complex exercises.",
+    "is_liked": false
+  },
+  {
+    "id": "3",
+    "title": "Hydration: The Overlooked Performance Factor",
+    "description": "Understand how proper hydration affects your workout performance and recovery.",
+    "category": "Nutrition",
+    "date": "2024-03-18",
+    "content": "Hydration plays a vital role in exercise performance. Even mild dehydration can impact your strength, endurance, and recovery. Aim to drink water throughout the day, not just during workouts. For intense or long workouts, consider electrolyte replacement. Monitor your hydration status through urine color and thirst levels. Remember that thirst is a late indicator of dehydration, so drink proactively.",
+    "is_liked": false
+  },
+  {
+    "id": "4",
+    "title": "Rest and Recovery: The Missing Link",
+    "description": "Learn why rest days are crucial for progress and how to optimize your recovery.",
+    "category": "Exercise",
+    "date": "2024-03-17",
+    "content": "Rest and recovery are essential components of any fitness program. Muscles grow and repair during rest periods, not during workouts. Overtraining can lead to decreased performance, increased injury risk, and burnout. Implement active recovery days with light activities like walking or yoga. Prioritize sleep, as it's when most muscle repair occurs. Listen to your body and take additional rest when needed.",
+    "is_liked": false
+  },
+  {
+    "id": "5",
+    "title": "Meal Timing for Optimal Performance",
+    "description": "Discover the best times to eat for maximum workout performance and recovery.",
+    "category": "Nutrition",
+    "date": "2024-03-16",
+    "content": "Meal timing can significantly impact your workout performance and recovery. Eat a balanced meal 2-3 hours before training to provide energy. Include easily digestible carbs and protein 30-60 minutes before exercise. Post-workout, consume protein and carbs within the first hour to optimize recovery. Don't forget about pre-bed nutrition - a protein-rich snack can support overnight muscle repair.",
+    "is_liked": false
+  }
+] 
