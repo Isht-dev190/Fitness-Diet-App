@@ -31,10 +31,7 @@ void main() async {
   // Initialize Hive and dependencies
   await HiveInitializer.initialize();
   
-  // Initialize notification service
- // final notificationService = NotificationService();
- // await notificationService.initialize();
-  
+
   runApp(
     MultiProvider(
       providers: [

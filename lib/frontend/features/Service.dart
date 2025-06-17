@@ -41,7 +41,7 @@ class ExerciseService extends ChangeNotifier {
           .map((json) => Exercise.fromJson(json as Map<String, dynamic>))
           .toList();
 
-      await box.clear(); // Clear old data
+      await box.clear(); 
       for (var exercise in exercisesList) {
         await box.add(exercise);
       }
@@ -100,7 +100,7 @@ class FoodService extends ChangeNotifier {
           .map((json) => Food.fromJson(json as Map<String, dynamic>))
           .toList();
 
-      await box.clear(); // Clear old data
+      await box.clear(); 
       for (var food in foodsList) {
         await box.add(food);
       }

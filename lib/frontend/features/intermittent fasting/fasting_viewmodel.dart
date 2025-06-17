@@ -11,6 +11,7 @@ class FastingViewModel extends ChangeNotifier {
   final _fastingStorage = FastingStorageService();
   final _userStorage = HiveStorageService();
   
+  
   FastingOption _selectedOption = FastingOption.options[0];
   List<FastingLog> _logs = [];
   Timer? _timer;

@@ -11,8 +11,7 @@ class ProfileView extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isDark = themeProvider.isDarkMode;
     final backgroundColor = isDark ? AppPallete.darkBgColor : AppPallete.lightBgColor;
-   // final textColor = isDark ? AppPallete.textColorDarkMode : AppPallete.textColorLightMode;
-
+   
     return Container(
       color: backgroundColor,
       child: Column(

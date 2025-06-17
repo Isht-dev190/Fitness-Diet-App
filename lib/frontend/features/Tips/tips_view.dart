@@ -154,7 +154,7 @@ class TipsView extends StatelessWidget {
                                 Chip(
                                   label: Text(article.category),
                                   backgroundColor: AppPallete.primaryColor.withOpacity(0.1),
-                                  labelStyle: TextStyle(color: AppPallete.primaryColor),
+                                  labelStyle: const TextStyle(color: AppPallete.primaryColor),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     side: BorderSide(color: AppPallete.primaryColor.withOpacity(0.3)),

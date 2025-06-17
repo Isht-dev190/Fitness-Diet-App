@@ -119,7 +119,7 @@ final router = GoRouter(
         child: RegEmail(),
       ),
     ),
-    // Main App Shell Route
+    // Main App Shell Route, for nesting across the app and share ui components
     ShellRoute(
       builder: (context, state, child) {
         final workoutBox = Hive.box<Workout>('workouts');
@@ -185,20 +185,3 @@ final router = GoRouter(
     ),
   ],
 );
-
-// String _getTitle(String path) {
-//   switch (path) {
-//     case '/dashboard':
-//       return 'Dashboard';
-//     case '/dashboard/exercises':
-//       return 'Exercises';
-//     case '/dashboard/foods':
-//       return 'Foods';
-//     case '/dashboard/ai':
-//       return 'AI Assistant';
-//     case '/dashboard/profile':
-//       return 'Profile';
-//     default:
-//       return '';
-//   }
-// }

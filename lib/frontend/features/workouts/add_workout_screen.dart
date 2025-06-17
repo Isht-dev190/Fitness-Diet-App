@@ -10,7 +10,7 @@ class AddWorkoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     return BlocBuilder<AddWorkoutCubit, AddWorkoutState>(
       builder: (context, state) {
         return Scaffold(
@@ -18,14 +18,14 @@ class AddWorkoutScreen extends StatelessWidget {
             title: const Text('Add Workout'),
           ),
           body: Form(
-            key: _formKey,
+            key: formKey,
             child: Stepper(
               currentStep: state.currentStep,
               onStepContinue: () {
                 if (state.currentStep < 2) {
                   context.read<AddWorkoutCubit>().updateCurrentStep(state.currentStep + 1);
                 } else {
-                  _saveWorkout(context, state, _formKey);
+                  _saveWorkout(context, state, formKey);
                 }
               },
               onStepCancel: () {

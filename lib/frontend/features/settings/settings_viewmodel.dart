@@ -21,7 +21,7 @@ class SettingsViewModel extends ChangeNotifier {
       await _authService.signOut();
 
       if (context.mounted) {
-        // Use go instead of push to clear the navigation stack
+       
         context.go('/');
       }
     } catch (e) {

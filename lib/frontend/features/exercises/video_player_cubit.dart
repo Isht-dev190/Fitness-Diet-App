@@ -14,6 +14,7 @@ class VideoPlayerError extends VideoPlayerState {
   VideoPlayerError(this.message);
 }
 
+
 class VideoPlayerCubit extends Cubit<VideoPlayerState> {
   YoutubePlayerController? _controller;
 

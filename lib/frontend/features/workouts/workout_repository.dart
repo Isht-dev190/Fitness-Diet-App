@@ -13,7 +13,7 @@ class WorkoutRepository {
       await _workoutService.getWorkouts();
       return Right(_workoutService.state.workouts);
     } catch (e) {
-      return Left(ServerFailure(message: 'Failed to load workouts'));
+      return const Left(ServerFailure(message: 'Failed to load workouts'));
     }
   }
 
@@ -22,7 +22,7 @@ class WorkoutRepository {
       await _workoutService.saveWorkout(workout);
       return const Right(null);
     } catch (e) {
-      return Left(ServerFailure(message: 'Failed to save workout'));
+      return const Left(ServerFailure(message: 'Failed to save workout'));
     }
   }
 
@@ -31,7 +31,7 @@ class WorkoutRepository {
       await _workoutService.deleteWorkout(id);
       return const Right(null);
     } catch (e) {
-      return Left(ServerFailure(message: 'Failed to delete workout'));
+      return const Left(ServerFailure(message: 'Failed to delete workout'));
     }
   }
 
@@ -40,7 +40,7 @@ class WorkoutRepository {
       await _workoutService.toggleNotifications(id);
       return const Right(null);
     } catch (e) {
-      return Left(ServerFailure(message: 'Failed to toggle notifications'));
+      return const Left(ServerFailure(message: 'Failed to toggle notifications'));
     }
   }
 } 
