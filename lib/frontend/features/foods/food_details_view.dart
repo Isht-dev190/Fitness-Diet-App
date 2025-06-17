@@ -99,7 +99,7 @@ class FoodDetailsView extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   // Nutrition Facts
-                  Text(
+                  const Text(
                     'Nutrition Facts',
                     style: TextStyle(
                       fontSize: 20,
@@ -164,7 +164,7 @@ class FoodDetailsView extends StatelessWidget {
           ),
           Text(
             value,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: AppPallete.primaryColor,
