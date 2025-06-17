@@ -18,37 +18,27 @@ class WorkoutDetailsModal extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                workout.name,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              IconButton(
-                icon: const Icon(Icons.close),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ],
+          Text(
+            workout.name,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 16),
           Text(
             'Time: ${workout.time.format(context)}',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
-          const SizedBox(height: 8),
           Text(
             'Days: ${workout.scheduledDates.map((date) => _getDayName(date.weekday)).join(', ')}',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           const Text(
-            'Exercises:',
+            'Exercises',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -63,9 +53,9 @@ class WorkoutDetailsModal extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 8),
                   child: ListTile(
                     title: Text(exercise.exerciseName),
-                    subtitle: exercise.duration != null
-                        ? Text('${exercise.duration} seconds')
-                        : Text('${exercise.sets} sets × ${exercise.reps} reps'),
+                    subtitle: Text(
+                      'Sets: ${exercise.sets}, Reps: ${exercise.reps}, Duration: ${exercise.duration}',
+                    ),
                   ),
                 );
               },

@@ -30,30 +30,19 @@ class Dashboard extends StatelessWidget {
       backgroundColor: backgroundColor,
       appBar: isRootRoute ? const CustomAppBar(isRootRoute: true) : null,
       drawer: isRootRoute ? const CustomDrawer() : null,
-      body: isRootRoute ? SingleChildScrollView(
+      body: isRootRoute ? const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          padding: EdgeInsets.symmetric(vertical: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
+               SizedBox(
                 height: 300,
                 child: MealCarouselScreen(),
               ),
-              const SizedBox(height: 32),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  '',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: textColor,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              const SizedBox(
+              
+             
+              SizedBox(
                 height: 300,
                 child: WorkoutCarouselScreen(),
               ),

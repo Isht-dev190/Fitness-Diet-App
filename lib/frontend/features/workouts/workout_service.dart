@@ -33,6 +33,8 @@ class WorkoutServiceCubit extends Cubit<WorkoutServiceState> {
 
   WorkoutServiceCubit(this._workoutBox) : super(WorkoutServiceState()) {
     print('WorkoutServiceCubit initialized with box: ${_workoutBox.name}');
+    // Load workouts immediately when cubit is created
+    getWorkouts();
   }
 
   Future<void> getWorkouts() async {

@@ -14,6 +14,11 @@ class WorkoutCarouselScreen extends StatelessWidget {
     final isDark = themeProvider.brightness == Brightness.dark;
     final textColor = isDark ? AppPallete.textColorDarkMode : AppPallete.textColorLightMode;
 
+    // Load workouts when screen is built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<WorkoutCubit>().loadWorkouts();
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Workouts'),
@@ -21,20 +26,39 @@ class WorkoutCarouselScreen extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
       ),
-      body: BlocBuilder<WorkoutCubit, WorkoutState>(
-        builder: (context, state) {
-          return switch (state) {
-            WorkoutInitial() => const Center(child: Text('No workouts available')),
-            WorkoutLoading() => const Center(child: CircularProgressIndicator()),
-            WorkoutError(message: final message) => Center(child: Text('Error: $message')),
-            WorkoutLoaded(workouts: final workouts) => PageView(
-                children: [
-                  AddWorkoutPage(textColor: textColor),
-                  WorkoutListPage(workouts: workouts),
-                ],
-              ),
-          };
+      body: BlocListener<WorkoutCubit, WorkoutState>(
+        listener: (context, state) {
+          if (state is WorkoutError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.message)),
+            );
+          }
         },
+        child: BlocBuilder<WorkoutCubit, WorkoutState>(
+          builder: (context, state) {
+            return switch (state) {
+              WorkoutInitial() => const Center(child: CircularProgressIndicator()),
+              WorkoutLoading() => const Center(child: CircularProgressIndicator()),
+              WorkoutError(message: final message) => Center(child: Text('Error: $message')),
+              WorkoutLoaded(workouts: final workouts) => Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppPallete.primaryColor),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: PageView(
+                      children: [
+                        AddWorkoutPage(textColor: textColor),
+                        WorkoutListPage(workouts: workouts),
+                      ],
+                    ),
+                  ),
+                ),
+            };
+          },
+        ),
       ),
     );
   }

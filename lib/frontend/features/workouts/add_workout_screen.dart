@@ -89,7 +89,7 @@ class AddWorkoutScreen extends StatelessWidget {
       );
 
       context.read<WorkoutCubit>().saveWorkout(workout);
-      context.pop();
+      context.go('/dashboard');
     }
   }
 } 

@@ -4,6 +4,7 @@ import 'package:app_dev_fitness_diet/frontend/core/Models/workout_model.dart';
 import 'package:app_dev_fitness_diet/frontend/core/theme/app_pallete.dart';
 import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_cubit.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Widgets/workouts/workout_details_modal.dart';
+import 'package:app_dev_fitness_diet/frontend/core/Widgets/workouts/day_name_helper.dart';
 
 class WorkoutListPage extends StatelessWidget {
   final List<Workout> workouts;
@@ -68,7 +69,7 @@ class WorkoutListPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
-                    'Days: ${workout.scheduledDates.map((date) => _getDayName(date.weekday)).join(', ')}',
+                    'Days: ${workout.scheduledDates.map((date) => DayNameHelper.getDayName(date.weekday)).join(', ')}',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Text(
@@ -102,26 +103,5 @@ class WorkoutListPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _getDayName(int weekday) {
-    switch (weekday) {
-      case 1:
-        return 'Mon';
-      case 2:
-        return 'Tue';
-      case 3:
-        return 'Wed';
-      case 4:
-        return 'Thu';
-      case 5:
-        return 'Fri';
-      case 6:
-        return 'Sat';
-      case 7:
-        return 'Sun';
-      default:
-        return '';
-    }
   }
 } 

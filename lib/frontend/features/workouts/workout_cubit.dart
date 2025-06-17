@@ -25,7 +25,10 @@ class WorkoutLoaded extends WorkoutState {
 class WorkoutCubit extends Cubit<WorkoutState> {
   final WorkoutRepository _repository;
 
-  WorkoutCubit(this._repository) : super(WorkoutInitial());
+  WorkoutCubit(this._repository) : super(WorkoutInitial()) {
+    // Load workouts immediately when cubit is created
+    loadWorkouts();
+  }
 
   Future<void> loadWorkouts() async {
     emit(WorkoutLoading());
