@@ -225,7 +225,7 @@ class AuthService extends ChangeNotifier {
       // Start Google Sign In flow with Supabase
       final response = await _supabase.auth.signInWithOAuth(
         OAuthProvider.google,
-        redirectTo: 'https://nndllhdsacjihdturdrv.supabase.co/auth/v1/callback',
+        redirectTo: 'io.supabase.flutterquickstart://login-callback/',
         queryParams: {
           'access_type': 'offline',
           'prompt': 'consent',
@@ -287,7 +287,7 @@ class AuthService extends ChangeNotifier {
       // Start Google Sign In flow with Supabase
       final response = await _supabase.auth.signInWithOAuth(
         OAuthProvider.google,
-        redirectTo: 'https://nndllhdsacjihdturdrv.supabase.co/auth/v1/callback',
+        redirectTo: 'io.supabase.flutterquickstart://login-callback/',
         queryParams: {
           'access_type': 'offline',
           'prompt': 'consent',

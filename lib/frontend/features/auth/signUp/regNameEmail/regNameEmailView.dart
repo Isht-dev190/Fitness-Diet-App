@@ -137,15 +137,7 @@ class RegEmail extends StatelessWidget {
                           'assets/icons/google.png',
                           height: 24,
                         ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          'Sign up with Google',
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                       
                       ],
                     ),
                   ),
