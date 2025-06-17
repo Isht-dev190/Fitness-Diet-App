@@ -135,6 +135,7 @@ class TipsService extends ChangeNotifier {
   String? get error => _error;
   List<Article>? get articles => _articles;
 
+  //This function gets articles from local storage 
   Future<List<Article>> getArticles() async {
     try {
       final cachedArticles = _storageService.getAllArticles();
@@ -159,7 +160,7 @@ class TipsService extends ChangeNotifier {
       notifyListeners();
     }
   }
-
+  
   Future<void> toggleLike(String id) async {
     await _storageService.toggleLike(id);
     _articles = _storageService.getAllArticles();
@@ -186,7 +187,7 @@ class TipsService extends ChangeNotifier {
         date: '2024-03-19',
         isLiked: false,
       ),
-      
+    
     ];
 
     for (var article in sampleArticles) {
