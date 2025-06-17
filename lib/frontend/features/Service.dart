@@ -186,7 +186,7 @@ class TipsService extends ChangeNotifier {
         date: '2024-03-19',
         isLiked: false,
       ),
-      // Add more sample articles as needed
+      
     ];
 
     for (var article in sampleArticles) {
