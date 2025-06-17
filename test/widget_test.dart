@@ -15,7 +15,7 @@ import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_reposito
 import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_service.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Models/workout_model.dart';
-import 'package:app_dev_fitness_diet/authRouter.dart';
+import 'package:app_dev_fitness_diet/Router.dart';
 
 void main() {
   setUp(() async {

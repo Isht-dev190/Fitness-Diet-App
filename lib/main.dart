@@ -12,7 +12,7 @@ import 'package:app_dev_fitness_diet/frontend/features/foods/food_viewModel.dart
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:app_dev_fitness_diet/frontend/core/secrets/supabase_secrets.dart';
 import 'package:app_dev_fitness_diet/frontend/core/Dependencies/initDependencies.dart';
-import 'package:app_dev_fitness_diet/authRouter.dart';
+import 'package:app_dev_fitness_diet/Router.dart';
 import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_cubit.dart';
 import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_repository.dart';
 import 'package:app_dev_fitness_diet/frontend/features/workouts/workout_service.dart';
